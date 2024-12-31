@@ -6,6 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B1CA66632D242F52001DF678 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = B1CA66622D242F52001DF678 /* BottomSheet */; };
+		B1CA66682D24321E001DF678 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = B1CA66672D24321E001DF678 /* ZIPFoundation */; };
+		B1CA666B2D24322D001DF678 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B1CA666A2D24322D001DF678 /* Kingfisher */; };
+		B1CA66752D243249001DF678 /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = B1CA66742D243249001DF678 /* SwipeActions */; };
+		B1CA66782D24325C001DF678 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B1CA66772D24325C001DF678 /* RxSwift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		B1CA66362D242E31001DF678 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +60,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1CA666B2D24322D001DF678 /* Kingfisher in Frameworks */,
+				B1CA66632D242F52001DF678 /* BottomSheet in Frameworks */,
+				B1CA66682D24321E001DF678 /* ZIPFoundation in Frameworks */,
+				B1CA66752D243249001DF678 /* SwipeActions in Frameworks */,
+				B1CA66782D24325C001DF678 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +125,11 @@
 			);
 			name = "flexstore-ios";
 			packageProductDependencies = (
+				B1CA66622D242F52001DF678 /* BottomSheet */,
+				B1CA66672D24321E001DF678 /* ZIPFoundation */,
+				B1CA666A2D24322D001DF678 /* Kingfisher */,
+				B1CA66742D243249001DF678 /* SwipeActions */,
+				B1CA66772D24325C001DF678 /* RxSwift */,
 			);
 			productName = "flexstore-ios";
 			productReference = B1CA66252D242E2F001DF678 /* flexstore-ios.app */;
@@ -195,6 +213,13 @@
 			);
 			mainGroup = B1CA661C2D242E2F001DF678;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B1CA66612D242F52001DF678 /* XCRemoteSwiftPackageReference "BottomSheet" */,
+				B1CA66662D24321E001DF678 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
+				B1CA66692D24322D001DF678 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				B1CA66732D243249001DF678 /* XCRemoteSwiftPackageReference "SwipeActions" */,
+				B1CA66762D24325C001DF678 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B1CA66262D242E2F001DF678 /* Products */;
 			projectDirPath = "";
@@ -558,6 +583,77 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B1CA66612D242F52001DF678 /* XCRemoteSwiftPackageReference "BottomSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lucaszischka/BottomSheet.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.1;
+			};
+		};
+		B1CA66662D24321E001DF678 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.19;
+			};
+		};
+		B1CA66692D24322D001DF678 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.3;
+			};
+		};
+		B1CA66732D243249001DF678 /* XCRemoteSwiftPackageReference "SwipeActions" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aheze/SwipeActions.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+		B1CA66762D24325C001DF678 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B1CA66622D242F52001DF678 /* BottomSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1CA66612D242F52001DF678 /* XCRemoteSwiftPackageReference "BottomSheet" */;
+			productName = BottomSheet;
+		};
+		B1CA66672D24321E001DF678 /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1CA66662D24321E001DF678 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
+		};
+		B1CA666A2D24322D001DF678 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1CA66692D24322D001DF678 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		B1CA66742D243249001DF678 /* SwipeActions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1CA66732D243249001DF678 /* XCRemoteSwiftPackageReference "SwipeActions" */;
+			productName = SwipeActions;
+		};
+		B1CA66772D24325C001DF678 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1CA66762D24325C001DF678 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B1CA661D2D242E2F001DF678 /* Project object */;
 }

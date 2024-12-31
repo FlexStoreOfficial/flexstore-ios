@@ -1,0 +1,51 @@
+{
+  "originHash" : "a1ca27341a65f6a210535587a937e81b48eeee5902f75b73cdc894c59c4f06b2",
+  "pins" : [
+    {
+      "identity" : "bottomsheet",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lucaszischka/BottomSheet.git",
+      "state" : {
+        "revision" : "720ddbd1371fef2a09cc1ab65fc503df37767f9c",
+        "version" : "3.1.1"
+      }
+    },
+    {
+      "identity" : "kingfisher",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onevcat/Kingfisher.git",
+      "state" : {
+        "revision" : "e6749919f9761d573d37a7d7e78b1b854c191d7f",
+        "version" : "8.1.3"
+      }
+    },
+    {
+      "identity" : "rxswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ReactiveX/RxSwift.git",
+      "state" : {
+        "revision" : "c7c7d2cf50a3211fe2843f76869c698e4e417930",
+        "version" : "6.8.0"
+      }
+    },
+    {
+      "identity" : "swipeactions",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/aheze/SwipeActions.git",
+      "state" : {
+        "revision" : "41e6f6dce02d8cfa164f8c5461a41340850ca3ab",
+        "version" : "1.1.0"
+      }
+    },
+    {
+      "identity" : "zipfoundation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/weichsel/ZIPFoundation.git",
+      "state" : {
+        "revision" : "02b6abe5f6eef7e3cbd5f247c5cc24e246efcfe0",
+        "version" : "0.9.19"
+      }
+    }
+  ],
+  "version" : 3
+}
