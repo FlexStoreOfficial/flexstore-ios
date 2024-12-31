@@ -30,3 +30,16 @@ extension Color {
     } // init
 } // extension Color
 
+extension URL {
+    var queryParameters: [String: String]? {
+        guard let components = URLComponents(url: self, resolvingAgainstBaseURL: true),
+              let queryItems = components.queryItems else {
+            return nil
+        }
+        var parameters = [String: String]()
+        for queryItem in queryItems {
+            parameters[queryItem.name] = queryItem.value
+        }
+        return parameters
+    } // var queryParameters: [String: String]
+} // extension URL
