@@ -23,6 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
         factory:(id (^)(void))factory;
 
 
+- (id)resolve:(Protocol *_Null_unspecified)aProtocol;
+
+- (void)remove:(Protocol *_Null_unspecified)aProtocol;
 
 @end
 
