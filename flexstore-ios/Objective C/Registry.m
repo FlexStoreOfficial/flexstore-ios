@@ -57,4 +57,24 @@ factory:(nonnull id _Nonnull (^)(void))factory {
     }
 }
 
+- (nonnull id)resolve:(Protocol *_Null_unspecified)aProtocol {
+    NSString *key = [self makeKey: aProtocol];
+    FSRegistered *registered = _registry[key];
+    
+    if (registered != nil) {
+        switch (registered.type) {
+            case FSRegistryScopeSingleton:
+                return registered.singletonObject;
+            case FSRegistryScopePrototype:
+                return registered.prototypeBlock();
+        }
+    }
+    
+    return nil;
+}
+
+- (void)remove:(Protocol *)aProtocol {
+    NSString *key = [self makeKey: aProtocol];
+    [_registry removeObjectForKey:key];
+}
 @end
