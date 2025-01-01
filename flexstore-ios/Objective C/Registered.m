@@ -26,4 +26,15 @@
     return self;
 }
 
+- (instancetype)initWithPrototypeBlock:(id  _Nonnull (^)(void))block {
+    self = [super init];
+    
+    if (self) {
+        _type = FSRegistryScopePrototype;
+        _prototypeBlock = [block copy];
+    }
+    
+    return self;
+}
+
 @end
