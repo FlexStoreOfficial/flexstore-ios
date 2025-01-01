@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FSRegistered: NSObject
 
-@property(nonatomic, readonly) Scope type;
+@property(nonatomic, readonly) FSScope type;
 
 @property(nonatomic, readonly) id singletonObject;
 

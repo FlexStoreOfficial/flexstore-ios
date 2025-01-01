@@ -9,4 +9,21 @@
  *
  */
 
-#import <Foundation/Foundation.h>
+#import "Registerd.h"
+
+@implementation FSRegistered
+
+#pragma mark - initialization
+
+- (instancetype)initWithSingleton:(id)object {
+    self = [super init];
+    
+    if (self) {
+        _type = FSRegistryScopeSingleton;
+        _singletonObject = object;
+    }
+    
+    return self;
+}
+
+@end
