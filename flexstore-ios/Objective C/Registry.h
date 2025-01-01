@@ -14,12 +14,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Registry: NSObject
+@interface FSRegistry: NSObject
 
 + (instancetype)sharedInstance;
 
 - (void)register:(Protocol *_Null_unspecified)aProtocol
-        scope:(NVScope)scope
+        scope:(Scope)scope
         factory:(id (^)(void))factory;
 
 
