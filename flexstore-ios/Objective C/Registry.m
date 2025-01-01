@@ -77,4 +77,23 @@ factory:(nonnull id _Nonnull (^)(void))factory {
     NSString *key = [self makeKey: aProtocol];
     [_registry removeObjectForKey:key];
 }
+
+
+- (nonnull NSString *)makeKey:(Protocol *_Null_unspecified)aProtocol {
+    NSString *key = NSStringFromProtocol(aProtocol);
+    return key;
+}
+
+- (void)registerSingleton:(Protocol *_Null_unspecified)aProtocol
+                  factory:(nonnull id _Nonnull (^)(void))factory {
+  NSString *key = [self makeKey:aProtocol];
+    _registry[key] = [[FSRegistered alloc] initWithSingleton:factory()];
+}
+
+- (void)registerPrototype:(Protocol *_Null_unspecified)aProtocol
+                  factory:(nonnull id _Nonnull (^)(void))factory {
+  NSString *key = [self makeKey:aProtocol];
+    _registry[key] = [[FSRegistered alloc] initWithPrototypeBlock:factory];
+}
+
 @end
