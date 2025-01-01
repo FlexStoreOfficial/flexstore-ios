@@ -31,7 +31,11 @@ func compareVersions(_ version1: String, _ version2: String) -> Bool {
                 return number1 > number2
             }
         } else {
-            
+            if component1 < component2 {
+                return false
+            } else if component1 > component2 {
+                return true
+            }
         }
     }
     
