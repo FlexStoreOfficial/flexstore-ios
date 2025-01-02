@@ -27,9 +27,41 @@ class AlertManager: ObservableObject {
     @Published var canAnimate = true
     @Published var showIPADetails = true
     @Published var IPAUUID = UUID()
-    
+
     private var cancellables: Set<AnyCancellable> = []
+
+    func showAlert(title: Text, body: Text, showButtons : Bool = true, showBody : Bool = true, canAnimate: Bool = true) {
+        Just(())
+            .receive(on: DispatchQueue.main)
+            .sink { _ in
+                UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.endEditing(true)
+                self.isAlertPresented = true
+                self.alertTitle = title
+                self.alertBody = body
+                self.showButtons = showButtons
+                self.showBody = showBody
+                self.canAnimate = canAnimate
+                self.showIPADetails = false
+
+            }
+            .store(in: &cancellables)
+    }
+    
+    func showIPADetails(id: UUID, canAnimate: Bool = true) {
+        Just(())
+            .receive(on: DispatchQueue.main)
+            .sink { _ in
+                UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.endEditing(true)
+                self.isAlertPresented = true
+                self.showIPADetails = true
+                self.IPAUUID = id
+                self.showButtons = true
+                self.canAnimate = canAnimate
+            }
+            .store(in: &cancellables)
+    }
 }
+
 
 struct AlertManager: View {
     var body: some View {
