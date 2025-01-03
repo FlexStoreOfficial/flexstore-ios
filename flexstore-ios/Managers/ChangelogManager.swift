@@ -45,8 +45,8 @@ struct ChangelogManagerView<Content: View>: View {
     var discordItems : [ListItem] = [
         ListItem(
             icon: "sparkles",
-            text: "TrollApps Betas",
-            subtext: "Get the latest TrollApps betas!",
+            text: "FlexStore Betas",
+            subtext: "Get the latest Flexstore betas!",
             color: Color.pink
         ),
         ListItem(
@@ -57,7 +57,7 @@ struct ChangelogManagerView<Content: View>: View {
         ),
         ListItem(
             icon: "questionmark.circle",
-            text: "TrollApps Support",
+            text: "FlexStore Support",
             subtext: "Report bugs you find in the app!",
             color: Color.red
         ),
@@ -125,7 +125,7 @@ struct ChangelogManagerView<Content: View>: View {
                             Spacer()
                             Divider()
                             Button("View Full Changelog") {
-                                openURL(URL(string: "https://github.com/TheResonanceTeam/TrollApps/releases/latest")!)
+                                openURL(URL(string: "https://github.com/FlexStoreOfficial/flexstore-ios")!)
                             }
                             .buttonStyle(LongButtonStyle(type: "pink", dissabled: false))
                             Button("Next") {
@@ -181,7 +181,7 @@ struct ChangelogManagerView<Content: View>: View {
                             }
                             .buttonStyle(LongButtonStyle(type: "grey", dissabled: false))
                             Button("Join Discord") {
-                                openURL(URL(string: "https://discord.gg/PrF6XqpGgX")!)
+                                openURL(URL(string: "")!)
                             }
                             .buttonStyle(LongButtonStyle(type: "pink", dissabled: false))
                             Button("Dismiss") {
