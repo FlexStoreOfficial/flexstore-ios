@@ -52,4 +52,23 @@ class QueueManager: ObservableObject {
             queue.remove(at: index)
         }
     }
+    
+    func hasQueueItem(bundleIdentifier: String) -> Bool {
+        return queue.contains { $0.bundleIdentifier == bundleIdentifier }
+    }
+    
+    func updateQueueItemProgress(itemID: UUID, progress: Double) {
+        if let index = queue.firstIndex(where: { $0.id == itemID }) {
+            queue[index].progress = progress
+        }
+    }
+    
+    func getQueueItem(bundleIdentifier: String) -> QueueItem? {
+        if let index = queue.firstIndex(where: { $0.bundleIdentifier == bundleIdentifier }) {
+            return queue[index]
+        }
+        
+        return nil
+    }
+    
 }
