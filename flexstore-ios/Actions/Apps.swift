@@ -70,7 +70,7 @@ func OpenApp(_ BundleID: String) {
 }
 
 func clearTmpFolder() {
-    let TempFolderURL = URL(fileURLWithPath: "/var/mobile/.TrollApps/tmp/")
+    let TempFolderURL = URL(fileURLWithPath: "/var/mobile/.flexstore/tmp/")
     let TempPathURL = TempFolderURL
     
     do {
