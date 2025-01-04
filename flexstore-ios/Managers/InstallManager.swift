@@ -48,3 +48,19 @@ func InstallIPA(_ itemID: UUID, queueManager: QueueManager, completion: @escapin
         return
     }
 }
+
+func DeleteIPA(_ itemID: UUID) -> Bool {
+    let destinationFolderURL = URL(fileURLWithPath: "/var/mobile/.flexstore-ios/tmp")
+    let IPAPathURL = destinationFolderURL.appendingPathComponent(itemID.uuidString).appendingPathExtension(".ipa")
+    
+    if !FileManager.default.fileExists(atPath: IPAPathURL.path) {
+        return false
+    } else {
+        do {
+            try FileManager.default.removeItem(atPath: IPAPathURL.path)
+            return true
+        } catch {
+            return false
+        }
+    }
+}
