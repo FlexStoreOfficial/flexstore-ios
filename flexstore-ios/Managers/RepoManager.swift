@@ -117,3 +117,23 @@ struct Application: Codable, Identifiable, Hashable {
         hasher.combine(id)
     }
 }
+
+let decoder = JSONDecoder()
+
+class RepositoryManager: ObservableObject {
+    @AppStorage("repos") var RepoList: [String] = [
+        /// repos
+    ]
+    
+    @Published var ReposData: [RepoMemory] = []
+    @Published var BadRepos: [BadRepoMemory] = []
+    
+    @Published var InstalledApps = GetApps()
+    
+    @Published var hasFetchedRepos: Bool = false
+    @Published var hasFinishedFetchingRepos: Bool = false
+    
+    @Published var isInstallingApp = false
+    @Published var isDownloadingApp = false
+    
+}
