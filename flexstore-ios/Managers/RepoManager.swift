@@ -40,7 +40,6 @@ enum StringOrDouble: Decodable, Encodable, Equatable {
     }
 }
 
-
 struct Repo: Decodable, Equatable, Hashable {
     var name: String?
     var website: String?
@@ -50,4 +49,8 @@ struct Repo: Decodable, Equatable, Hashable {
     var tintColor: String?
     var apps: [Application]
     var news: [News]?
+
+    enum CodingKeys: String, CodingKey {
+        case name, iconURL, headerURL, featuredApps, tintColor, apps, news
+    }
 }
