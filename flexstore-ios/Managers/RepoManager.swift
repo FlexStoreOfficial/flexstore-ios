@@ -30,4 +30,14 @@ enum StringOrDouble: Decodable, Encodable, Equatable {
         case couldNotFindStringOrDouble
     }
     
+    func toString() -> String {
+        switch self {
+        case .string(let stringValue):
+            return stringValue
+        case .double(let doubleValue):
+            return String(doubleValue)
+        }
+    }
 }
+
+
