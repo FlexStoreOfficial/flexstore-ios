@@ -65,3 +65,30 @@ struct BadRepoMemory: Identifiable {
     let id = UUID()
     var url: String
 }
+
+struct ErrorMemory: Identifiable {
+    let id = UUID()
+    var url: String
+    var data: Repo
+}
+
+struct Version: Codable, Equatable {
+    var absoluteVersion: String?
+    var version: String
+    var date: String
+    var localizedDescription: String?
+    var downloadURL: String
+    var size: StringOrDouble?
+    var minOSVersion: String?
+    var maxOSVersion: String?
+}
+
+struct News: Codable, Hashable {
+    var title: String?
+    var caption: String?
+    var date: String?
+    var tintColor: String?
+    var imageURL: String?
+    var url: String?
+    var appID: String?
+}
