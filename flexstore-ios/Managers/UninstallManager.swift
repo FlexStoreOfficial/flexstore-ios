@@ -17,6 +17,10 @@ func UninstallIPA(_ appID: String) -> FunctionStatus {
             return FunctionStatus(error: true, message: ErrorMessage(title: "FAILED TO INSTALL", body: "UNINSTALLATION RETURNED ERROR \(returnCode)"))
         } else {
             NotificationCenter.default.post(name: Notification.Name("ApplicationChanged"), object: nil)
+            PassthroughSubject<Void, Never>().send()
+            return FunctionStatus(error: false)
         }
+    } else {
+        return FunctionStatus(error: true, message: ErrorMessage(title: "NOT FOUND", body: "STORE IS REQUIRED"))
     }
 }
