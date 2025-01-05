@@ -146,4 +146,53 @@ class RepositoryManager: ObservableObject {
         }
     }
     
+    func addRepo(_ repoURL: String, alertManager: AlertManager, completion: @escaping () -> Void) {
+            let dispatchGroup = DispatchGroup()
+            
+            if !RepoList.contains(repoURL.trimmingCharacters(in: .whitespacesAndNewlines)) {
+                dispatchGroup.enter()
+                
+                let regex = try! NSRegularExpression(pattern: #"^repo\[[A-Za-z0-9+/]+={0,2}\]$"#, options: .caseInsensitive)
+                
+                let range = NSRange(location: 0, length: repoURL.utf16.count)
+                let isMatch = regex.firstMatch(in: repoURL, options: [], range: range) != nil
+                
+                if isMatch {
+                    if let base64String = repoURL.components(separatedBy: "[").last?.components(separatedBy: "]").first,
+                       let data = Data(base64Encoded: base64String),
+                       let decodedString = String(data: data, encoding: .utf8) {
+                        var urlArray = decodedString.split(separator: ",").map { String($0).trimmingCharacters(in: .whitespacesAndNewlines) }
+                        urlArray = urlArray.filter { !self.RepoList.contains($0) }
+                        
+                        fetchRepos(urlArray) { fetchedResults, errors in
+                            self.ReposData = self.ReposData + fetchedResults
+                            self.BadRepos = self.BadRepos + errors
+                            self.RepoList = self.RepoList + urlArray
+                            
+                            dispatchGroup.leave()
+                        }
+                    } else {
+                        alertManager.showAlert(
+                            title: Text(LocalizedStringKey("ERROR_DECODING_BASE64_STRING")),
+                            body: Text(LocalizedStringKey("PLEASE_VERIFY_VALID_REPO_STRING"))
+                        )
+                    }
+                } else {
+                    fetchRepos([repoURL]) { fetchedResults, errors in
+                        self.ReposData = self.ReposData + fetchedResults
+                        self.BadRepos = self.BadRepos + errors
+                        self.RepoList = self.RepoList + [repoURL.trimmingCharacters(in: .whitespacesAndNewlines)]
+                        
+                        dispatchGroup.leave()
+                    }
+                }
+                
+                dispatchGroup.notify(queue: .main) {
+                    completion()
+                }
+            } else {
+                completion()
+            }
+        }
+    
 }
