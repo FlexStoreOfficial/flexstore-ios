@@ -54,3 +54,14 @@ struct Repo: Decodable, Equatable, Hashable {
         case name, iconURL, headerURL, featuredApps, tintColor, apps, news
     }
 }
+
+struct RepoMemory: Identifiable {
+    let id = UUID()
+    var url: String
+    var data: Repo
+}
+
+struct BadRepoMemory: Identifiable {
+    let id = UUID()
+    var url: String
+}
