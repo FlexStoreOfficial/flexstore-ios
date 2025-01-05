@@ -136,4 +136,14 @@ class RepositoryManager: ObservableObject {
     @Published var isInstallingApp = false
     @Published var isDownloadingApp = false
     
+    func fetchRepos() {
+        self.hasFetchedRepos = true
+        fetchRepos(RepoList) { fetchedResults, errors in
+            self.ReposData = fetchedResults
+            self.BadRepos = errors
+            
+            self.hasFinishedFetchingRepos = true
+        }
+    }
+    
 }
