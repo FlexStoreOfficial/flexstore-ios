@@ -195,4 +195,15 @@ class RepositoryManager: ObservableObject {
             }
         }
     
+    func removeRepos(repoIds: Set<UUID>) {
+            for repoId in repoIds {
+                if let reposIndex = ReposData.firstIndex(where: { $0.id == repoId }) {
+                    if let repoListIndex = RepoList.firstIndex(of: ReposData[reposIndex].url) {
+                        RepoList.remove(at: repoListIndex)
+                    }
+                    ReposData.remove(at: reposIndex)
+                }
+            }
+    }
+    
 }
