@@ -92,3 +92,28 @@ struct News: Codable, Hashable {
     var url: String?
     var appID: String?
 }
+
+struct Application: Codable, Identifiable, Hashable {
+    var id = UUID()
+    var name: String
+    var subtitle: String?
+    var bundleIdentifier: String?
+    var version: String?
+    var versionDate: String?
+    var size: StringOrDouble?
+    var downloadURL: String?
+    var developerName: String?
+    var localizedDescription: String?
+    var tintColor: String?
+    var iconURL: String
+    var screenshotURLs: [String]?
+    var versions: [Version]?
+
+    enum CodingKeys: String, CodingKey {
+        case name, subtitle, bundleIdentifier, version, versionDate, size, downloadURL, developerName, localizedDescription, tintColor, iconURL, screenshotURLs, versions
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}
