@@ -1,0 +1,14 @@
+//
+//  UninstallManager.swift
+//  flexstore-ios
+//
+//  Created by Krisna Pranav on 05/01/25.
+//
+
+import SwiftUI
+
+class UserManager: ObservableObject {
+    @AppStorage("reduced_motion") var reducedMotion: Bool = true
+    @AppStorage("blur_strength") var blurStrength: Double = 10
+    @AppStorage("compact_repo_view") var compactRepoView: Bool = false
+}
