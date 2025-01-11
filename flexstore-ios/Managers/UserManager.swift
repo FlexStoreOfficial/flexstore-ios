@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import Foundation
 
-class UserManager: ObservableObject {
-    @AppStorage("reduced_motion") var reducedMotion: Bool = true
+class UserSettings: ObservableObject {
+    @AppStorage("reduced_motion") var reducedMotion : Bool = true
     @AppStorage("blur_strength") var blurStrength: Double = 10
     @AppStorage("compact_repo_view") var compactRepoView: Bool = false
-    @AppStorage("lang") var lang: String = ""
-    @AppStorage("add_repo_keyboard_type") var addRepoKeyboardType: UIKeyboardType = .URL
-    @AppStorage("has_seen_discord") var hasSeenDiscord: Bool = false
+    @AppStorage("lang") var lang : String = ""
+    @AppStorage("add_repo_keyboard_type") var addRepoKeyboardType : UIKeyboardType = .URL
+    @AppStorage("has_seen_discord") var hasSeenDiscord : Bool = false
+    @AppStorage("skip_install_prompt") var skipInstallPrompt : Bool = true
 }
