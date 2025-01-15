@@ -11,9 +11,9 @@ public struct AppStoreStyle: ButtonStyle {
     let type: String
     let dissabled: Bool
 
-    public init(type: String, disabled: Bool, extraWidth: CGFloat = 0) {
+    public init(type: String, dissabled: Bool, extraWidth: CGFloat = 0) {
         self.type = type
-        self.dissabled = disabled
+        self.dissabled = dissabled
     }
 
     public func makeBody(configuration: Self.Configuration) -> some View {
@@ -21,34 +21,62 @@ public struct AppStoreStyle: ButtonStyle {
 
         configuration.label
             .font(Font.body.weight(.semibold))
+            .foregroundColor(dissabled ? Color.accentColor : foregroundColor)
+            .padding(.vertical, 5)
+            .padding(.horizontal, 18)
+            .frame(height: 30, alignment: .center)
+            .frame(minWidth: 80)
+            .background(
+                RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+                    .fill(fill)
+                    .opacity(dissabled ? 0.4 : type == "blue" || type == "pink" ? 1 : 0.2)
+            )
+            .opacity(configuration.isPressed ? 0.2 : 1.0)
     }
 }
 
 public struct LongButtonStyle: ButtonStyle {
     let type: String
-    let disabled: Bool
+    let dissabled: Bool
 
-    public init(type: String, disabled: Bool, extraWidth: CGFloat = 0) {
+    public init(type: String, dissabled: Bool, extraWidth: CGFloat = 0) {
         self.type = type
-        self.disabled = disabled
+        self.dissabled = dissabled
+    }
+
+    public func makeBody(configuration: Self.Configuration) -> some View {
+        let (foregroundColor, fill) = colors(forType: type)
+
+        configuration.label
+            .font(Font.body.weight(.semibold))
+            .foregroundColor(dissabled ? Color.accentColor : foregroundColor)
+            .padding(.vertical, 5)
+            .padding(.horizontal, 18)
+            .frame(height: 50, alignment: .center)
+            .frame(width: 350)
+            .background(
+                RoundedRectangle(cornerRadius: 10.0, style: .continuous)
+                    .fill(fill)
+                    .opacity(dissabled ? 0.4 : type == "blue" || type == "pink" ? 1 : 0.2)
+            )
+            .opacity(configuration.isPressed ? 0.2 : 1.0)
     }
 }
 
-
 private func colors(forType type: String) -> (Color, Color) {
-    var foregroundColor: Color
-    var fill: Color
+    var foregroundColor : Color
+    var fill : Color
 
     switch type {
     case "blue":
-        foregroundColor = Color(.blue)
-        fill = Color(.blue).opacity(0.1)
-    case "green":
-        foregroundColor = Color(.green)
-        fill = Color(.green).opacity(0.1)
-    case "red":
-        foregroundColor = Color(.red)
-        fill = Color(.red).opacity(0.1)
+        foregroundColor = Color.white
+        fill = Color.blue
+    case "gray":
+        foregroundColor = Color.accentColor
+        fill = Color.gray
+    case "pink":
+        foregroundColor = Color.white
+        fill = Color.pink
     default:
         foregroundColor = Color.accentColor
         fill = Color.gray
