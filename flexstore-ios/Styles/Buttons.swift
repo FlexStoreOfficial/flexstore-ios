@@ -15,7 +15,15 @@ public struct AppStoreStyle: ButtonStyle {
         self.type = type
         self.dissabled = disabled
     }
+
+    public func makeBody(configuration: Self.Configuration) -> some View {
+        let (foregroundColor, fill) = colors(forType: type)
+
+        configuration.label
+            .font(Font.body.weight(.semibold))
+    }
 }
+
 
 
 private func colors(forType type: String) -> (Color, Color) {
