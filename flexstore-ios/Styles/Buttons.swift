@@ -24,6 +24,15 @@ public struct AppStoreStyle: ButtonStyle {
     }
 }
 
+public struct LongButtonStyle: ButtonStyle {
+    let type: String
+    let disabled: Bool
+
+    public init(type: String, disabled: Bool, extraWidth: CGFloat = 0) {
+        self.type = type
+        self.disabled = disabled
+    }
+}
 
 
 private func colors(forType type: String) -> (Color, Color) {
