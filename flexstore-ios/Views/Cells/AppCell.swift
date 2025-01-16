@@ -44,5 +44,10 @@ struct AppCell: View {
                 }
             }
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.init(top: 10, leading: 15, bottom: 10, trailing: 15))
+        .background(
+            NavigationLink("", destination: TitleContent()).opacity(0)
+        )
     }
 }
