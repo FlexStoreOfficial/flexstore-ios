@@ -26,6 +26,23 @@ struct AppCell: View {
                         .padding(.trailing, 7)
                 }
             }
+
+            if showFullMode {
+                let screenshots = app.screenshotURLs ?? []
+                if (screenshots.count > 0) {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 10) {
+                            ForEach(screenshots.indices, id: \.self) { index in
+                                KFImage(URL(string: screenshots[index]))
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .clipShape(RoundedRectangle(cornerRadius: 16))
+                            }
+                        }
+                        .padding(.horizontal, 10)
+                    }
+                }
+            }
         }
     }
 }
